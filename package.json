@@ -1,7 +1,7 @@
 {
   "name": "transporte-santiago-open-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web app diseñada para gestionar los vehículos que transportan a los participantes del ATP Santiago 2021",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -12,8 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
+    "mongoose": "^5.11.15",
     "socket.io": "^3.1.2"
   },
   "devDependencies": {
