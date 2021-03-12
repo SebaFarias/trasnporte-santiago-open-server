@@ -3,6 +3,10 @@ mongoose.set('useFindAndModify', false);
 
 const itemSchema = mongoose.Schema({
   
+  terminado: {
+    type: Boolean,
+    required: true,
+  },
   driver: {
     type: String,
     required: true,
@@ -16,7 +20,6 @@ const itemSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  terminado: Boolean,
   pasajeros: {
     type: Number,
     required: true,

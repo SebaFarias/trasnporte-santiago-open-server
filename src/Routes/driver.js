@@ -7,6 +7,6 @@ const {
 
 router
   .get('/getDrivers', getDrivers)
-  .put('/createDrivers', createDriver)
+  .put('/createDriver', createDriver)
 
 module.exports = router

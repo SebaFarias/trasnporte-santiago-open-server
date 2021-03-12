@@ -4,6 +4,7 @@ const http = require('http')
 const socketio = require('socket.io')
 const helmet = require('helmet')
 const driverRoutes = require('./src/Routes/driver')
+const viajeRoutes = require('./src/Routes/viaje')
 const app = express()
 
 app.use(cors())
@@ -12,7 +13,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 //Rutas
-app.use('/ ', driverRoutes)
+app.use('/api/v1/driver', driverRoutes)
+app.use('/api/v1/viaje', viajeRoutes)
 app.get('/', ( req, res ) => {
   res.json({
     msg: 'Santiago Open API REST | conductores'
