@@ -1,14 +1,14 @@
 const express = require('express')
 const cors = require('cors')
-const http = require('http')
-const socketio = require('socket.io')
 const helmet = require('helmet')
+const morgan = require('morgan')
 const driverRoutes = require('./src/Routes/driver')
 const viajeRoutes = require('./src/Routes/viaje')
 const app = express()
 
 app.use(cors())
 app.use(helmet())
+app.use(morgan('common'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
@@ -21,13 +21,4 @@ app.get('/', ( req, res ) => {
   })
 })
 
-const server = http.createServer(app)
-const io = socketio(server)
-
-io.on( 'connection', socket => {
-  socket.on( 'conectado', () => {
-    console.log('usuario conectado')
-  })
-})
-
-module.exports = server
+module.exports = app

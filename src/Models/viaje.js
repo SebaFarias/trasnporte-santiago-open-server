@@ -3,31 +3,12 @@ mongoose.set('useFindAndModify', false);
 
 const itemSchema = mongoose.Schema({
   
-  terminado: {
-    type: Boolean,
-    required: true,
-  },
-  driver: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  origen: {
-    type: String,
-    required: true,
-  },
-  destino: {
-    type: String,
-    required: true,
-  },
-  pasajeros: {
-    type: Number,
-    required: true,
-  },
-  inicio: {
-    type: Date,
-    required: true,
-  },
+  terminado: { type: Boolean, required: true, unique: false, sparse: true},
+  driver:    { type: String,  required: true, unique: false, sparse: true},
+  origen:    { type: String,  required: true, unique: false, sparse: true},
+  destino:   { type: String,  required: true, unique: false, sparse: true},
+  pasajeros: { type: Number,  required: true, unique: false, sparse: true},
+  inicio:    { type: Date,    required: true, unique: false, sparse: true},
   fin: Date,
 },{
   timestamps: true,

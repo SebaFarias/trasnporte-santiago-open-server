@@ -7,7 +7,7 @@ const{
 } = require('../Controllers/viaje')
 
 router
-.post('/comenzarViaje:viajeId',comenzarViaje)
+.put('/comenzarViaje',comenzarViaje)
 .post('/terminarViaje:viajeId', terminarViaje)
 
 module.exports = router

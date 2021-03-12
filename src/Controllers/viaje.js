@@ -2,6 +2,7 @@ const Viaje = require('../Models/viaje')
 
 const viajeMethods = {
   comenzarViaje: async ( req, res ) => {
+    console.log( 'req' )
     const {
       choferId,
       origen,
@@ -22,6 +23,7 @@ const viajeMethods = {
       res.status(201).json(newViaje)
     }
     catch(err){
+      console.log(err)
       res.status(400).json({
         error: err,
       })
@@ -34,14 +36,20 @@ const viajeMethods = {
       const {
         driver,
         fin,
+        origen,
+        destino,
+        pasajeros,
       } = req.body
       const update = {
         terminado: true,
         driver: driver,
         fin: fin,
+        origen:origen,
+        destino:destino,
+        pasajeros:pasajeros,
       }
       const options = {}
-      Viaje.findByIdAndUpdate(rutaId,update,options,(err,docs)=>{
+      Viaje.findByIdAndUpdate(rutaId,update,options,( err, docs )=>{
         if(err){
           res.status(400).json({error: err})
         } else {
@@ -59,4 +67,4 @@ const viajeMethods = {
   },
 }
 
-export default viajeMethods
+module.exports = viajeMethods
